@@ -3,5 +3,10 @@
     "speech": "Hallo",
     "wetterCondition": "Rainy",
     "timeCondition": "9:23:00-14:54:00"
+  },
+  {
+    "speech": "Time",
+    "wetterCondition": "Rainy",
+    "timeCondition": "9:23:00-14:54:00"
   }
 ]
