@@ -1,12 +1,202 @@
 [
   {
-    "speech": "Hallo",
-    "wetterCondition": "Rainy",
-    "timeCondition": "9:23:00-14:54:00"
+    "speech": "Clear skies, clear mind. Make the most of today!",
+    "weatherConditionCode": "0"
   },
   {
-    "speech": "Time",
-    "wetterCondition": "Rainy",
-    "timeCondition": "9:23:00-14:54:00"
+    "speech": "A bright sky is a great reason to step outside.",
+    "weatherConditionCode": "1"
+  },
+  {
+    "speech": "A few clouds cannot hide the possibilities of today.",
+    "weatherConditionCode": "2"
+  },
+  {
+    "speech": "Cloudy skies are perfect for creating your own sunshine.",
+    "weatherConditionCode": "3"
+  },
+  {
+    "speech": "Take it slowly, the fog will clear.",
+    "weatherConditionCode": "45"
+  },
+  {
+    "speech": "A frosty fog has turned the world into a quiet painting.",
+    "weatherConditionCode": "48"
+  },
+  {
+    "speech": "A little drizzle never stopped a great day.",
+    "weatherConditionCode": "51"
+  },
+  {
+    "speech": "The gentle drizzle is giving the world a fresh start.",
+    "weatherConditionCode": "53"
+  },
+  {
+    "speech": "Keep moving forward, even when the day feels damp.",
+    "weatherConditionCode": "55"
+  },
+  {
+    "speech": "Watch your step, freezing drizzle can be slippery.",
+    "weatherConditionCode": "56"
+  },
+  {
+    "speech": "Stay warm and careful in the freezing drizzle.",
+    "weatherConditionCode": "57"
+  },
+  {
+    "speech": "Let the rain refresh your thoughts.",
+    "weatherConditionCode": "61"
+  },
+  {
+    "speech": "Rainy days make warm drinks taste even better.",
+    "weatherConditionCode": "63"
+  },
+  {
+    "speech": "Heavy rain outside, strong motivation inside.",
+    "weatherConditionCode": "65"
+  },
+  {
+    "speech": "Freezing rain is a good reason to take extra care.",
+    "weatherConditionCode": "66"
+  },
+  {
+    "speech": "Stay safe and warm while the freezing rain passes.",
+    "weatherConditionCode": "67"
+  },
+  {
+    "speech": "Every snowflake makes the day a little more magical.",
+    "weatherConditionCode": "71"
+  },
+  {
+    "speech": "The falling snow invites you to slow down and enjoy the moment.",
+    "weatherConditionCode": "73"
+  },
+  {
+    "speech": "Heavy snow can transform an ordinary day into an adventure.",
+    "weatherConditionCode": "75"
+  },
+  {
+    "speech": "Tiny snow grains are painting the ground white.",
+    "weatherConditionCode": "77"
+  },
+  {
+    "speech": "A passing rain shower cannot wash away a good mood.",
+    "weatherConditionCode": "80"
+  },
+  {
+    "speech": "Rain showers come and go, but your progress remains.",
+    "weatherConditionCode": "81"
+  },
+  {
+    "speech": "A strong shower is nature's way of pressing the refresh button.",
+    "weatherConditionCode": "82"
+  },
+  {
+    "speech": "A snow shower is bringing a little winter magic.",
+    "weatherConditionCode": "85"
+  },
+  {
+    "speech": "Stay cozy while the heavy snow shower passes.",
+    "weatherConditionCode": "86"
+  },
+  {
+    "speech": "Thunder may be loud, but it cannot silence your determination.",
+    "weatherConditionCode": "95"
+  },
+  {
+    "speech": "Thunder and hail outside mean it is time to stay safe inside.",
+    "weatherConditionCode": "96"
+  },
+  {
+    "speech": "Let the storm pass and keep your focus on calmer skies ahead.",
+    "weatherConditionCode": "99"
+  },
+  {
+    "speech": "The sun is shining, and today is full of opportunities.",
+    "weatherConditionCode": "0"
+  },
+  {
+    "speech": "Perfect weather for turning plans into adventures.",
+    "weatherConditionCode": "0"
+  },
+  {
+    "speech": "Enjoy the sunshine and bring some of it into someone else's day.",
+    "weatherConditionCode": "0"
+  },
+  {
+    "speech": "Mostly clear skies are a promising start to the day.",
+    "weatherConditionCode": "1"
+  },
+  {
+    "speech": "The clouds have arrived, but the day still belongs to you.",
+    "weatherConditionCode": "2"
+  },
+  {
+    "speech": "Behind every cloud, the blue sky is still there.",
+    "weatherConditionCode": "2"
+  },
+  {
+    "speech": "A gray sky is simply a blank canvas for a colorful day.",
+    "weatherConditionCode": "3"
+  },
+  {
+    "speech": "Cloudy weather is perfect for focusing on something great.",
+    "weatherConditionCode": "3"
+  },
+  {
+    "speech": "If the path looks foggy, focus on the next step.",
+    "weatherConditionCode": "45"
+  },
+  {
+    "speech": "The rain is temporary, but a positive attitude can last all day.",
+    "weatherConditionCode": "61"
+  },
+  {
+    "speech": "Grab an umbrella and carry on with confidence.",
+    "weatherConditionCode": "61"
+  },
+  {
+    "speech": "A steady rain is the perfect soundtrack for a productive day.",
+    "weatherConditionCode": "63"
+  },
+  {
+    "speech": "Snow outside, warmth and good ideas inside.",
+    "weatherConditionCode": "71"
+  },
+  {
+    "speech": "Fresh snow means fresh possibilities.",
+    "weatherConditionCode": "73"
+  },
+  {
+    "speech": "The shower will pass, so keep looking forward.",
+    "weatherConditionCode": "80"
+  },
+  {
+    "speech": "Stormy weather makes calm moments feel even more valuable.",
+    "weatherConditionCode": "95"
+  },
+  {
+    "speech": "Today is another chance to build something amazing.",
+    "weatherConditionCode": ""
+  },
+  {
+    "speech": "Small progress is still progress.",
+    "weatherConditionCode": ""
+  },
+  {
+    "speech": "Make today count, one step at a time.",
+    "weatherConditionCode": ""
+  },
+  {
+    "speech": "You do not need perfect conditions to have a great day.",
+    "weatherConditionCode": ""
+  },
+  {
+    "speech": "A new day means new possibilities.",
+    "weatherConditionCode": ""
+  },
+  {
+    "speech": "Whatever the weather, bring your own good energy.",
+    "weatherConditionCode": ""
   }
 ]

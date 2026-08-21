@@ -41,6 +41,7 @@ export default function SpeedOfDayComponent() {
 
 
 
+
     useEffect(() => {
         function fetchWeather() {
             const savedLocation = localStorage.getItem("weather-location")
@@ -51,22 +52,38 @@ export default function SpeedOfDayComponent() {
             fetchWeatherData(parsedLocation)
         }
 
-        const getSpeechOfTheDay = () => {
-            const currentSpeech = speechofday[Math.floor(Math.random() * speechofday.length)]
-            setSpeechOfTheDay(currentSpeech.speech)
-        }
+
 
         fetchWeather()
-        getSpeechOfTheDay()
+
 
         const interval = setInterval(() => {
             fetchWeather()
-            getSpeechOfTheDay()
         }, 60 * 60 * 100)
+
+
 
         return () => clearInterval(interval)
 
     }, [])
+
+    useEffect(() => {
+
+            if (!weather) return
+
+            const matchingSpeech = speechofday.filter((entry) => {
+                const matches = Number(entry.weatherConditionCode) == Number(weather?.weather_code) || entry.weatherConditionCode == ""
+                return matches
+            })
+            if (matchingSpeech.length == 0) {
+                setSpeechOfTheDay("No speech found")
+                return
+            }
+
+            const randomSpeech = matchingSpeech[Math.floor(Math.random() * matchingSpeech.length)]
+            setSpeechOfTheDay(randomSpeech.speech)
+
+    }, [weather]);
 
 
     const requestLocation = () => {
@@ -99,7 +116,7 @@ export default function SpeedOfDayComponent() {
     return (
         <div>
             <p className="text-2xl font-bold">Speech of the day:</p>
-            <p className="text-3xl">{speechOfTheDay}</p>
+            <p className="text-3xl max-w-150">{speechOfTheDay}</p>
         </div>
     )
 }
