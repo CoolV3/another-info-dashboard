@@ -2,6 +2,7 @@
 
 import speechofday from "@/lib/speechofday.json"
 import {useEffect, useState} from "react";
+import useWeather from "@/lib/useWeather";
 
 
 type WeatherResponse = {
@@ -21,95 +22,35 @@ export default function SpeedOfDayComponent() {
     const [weather, setWeather] = useState<WeatherResponse["current"] | null>()
     const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
     const [error, setError] = useState("")
-    const [loadingLocation, setLoadingLocation] = useState(false)
     const [speechOfTheDay, setSpeechOfTheDay] = useState("")
-
-
-    const fetchWeatherData = async (location: Coordinates) => {
-        try {
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,apparent_temperature,weather_code`)
-            if (!response.ok) {
-                setError(`Weather request failed: ${response.status}`);
-            }
-
-            const data: WeatherResponse = await response.json();
-            setWeather(data.current);
-        } catch (e) {
-            setError("Fetching weather data failed")
-        }
-    }
-
-
+    const {getWeather} = useWeather()
 
 
     useEffect(() => {
-        function fetchWeather() {
-            const savedLocation = localStorage.getItem("weather-location")
+            const updateSpeechNow = async () => {
+                const response = await getWeather()
+                if (response?.success) {
+                    const weather = response.weather
 
-            if (!savedLocation) return
+                    const matchingSpeech = speechofday.filter((entry) => {
+                        const matches = Number(entry.weatherConditionCode) == Number(weather?.current.weather_code) || entry.weatherConditionCode == ""
+                        return matches
+                    })
+                    if (matchingSpeech.length == 0) {
+                        setSpeechOfTheDay("No speech found")
+                        return
+                    }
 
-            const parsedLocation: Coordinates = JSON.parse(savedLocation);
-            fetchWeatherData(parsedLocation)
-        }
-
-
-
-        fetchWeather()
-
-
-        const interval = setInterval(() => {
-            fetchWeather()
-        }, 60 * 60 * 100)
-
-
-
-        return () => clearInterval(interval)
-
+                    const randomSpeech = matchingSpeech[Math.floor(Math.random() * matchingSpeech.length)]
+                    setSpeechOfTheDay(randomSpeech.speech)
+                } else {
+                    setError(response?.message || "Error while fetching the speech of the day")
+                }
+            }
+            updateSpeechNow()
     }, [])
 
-    useEffect(() => {
 
-            if (!weather) return
-
-            const matchingSpeech = speechofday.filter((entry) => {
-                const matches = Number(entry.weatherConditionCode) == Number(weather?.weather_code) || entry.weatherConditionCode == ""
-                return matches
-            })
-            if (matchingSpeech.length == 0) {
-                setSpeechOfTheDay("No speech found")
-                return
-            }
-
-            const randomSpeech = matchingSpeech[Math.floor(Math.random() * matchingSpeech.length)]
-            setSpeechOfTheDay(randomSpeech.speech)
-
-    }, [weather]);
-
-
-    const requestLocation = () => {
-        setLoadingLocation(true)
-        navigator.geolocation.getCurrentPosition(
-            async (position) => {
-                const location: Coordinates = {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                }
-
-                localStorage.setItem(
-                    "weather-location",
-                    JSON.stringify(location)
-                )
-
-                setCoordinates(location)
-                setLoadingLocation(false)
-                fetchWeatherData(location)
-            },
-            (locationError) => {
-                setError("Location permission was not granted")
-                setLoadingLocation(false)
-            }
-        )
-    }
 
   
 
