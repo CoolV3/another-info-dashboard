@@ -165,6 +165,7 @@ export default function WeatherDisplay() {
             const parsedLocation: Coordinates = JSON.parse(savedLocation);
             fetchWeatherData(parsedLocation)
         }
+        fetchWeather()
 
         const interval = setInterval(fetchWeather, 60 * 60 * 1000)
         return () => clearInterval(interval)
@@ -187,8 +188,8 @@ export default function WeatherDisplay() {
                 )
 
                 setCoordinates(location)
+                await fetchWeatherData(location)
                 setLoadingLocation(false)
-                fetchWeatherData(location)
             },
             (locationError) => {
                 setError("Location permission was not granted")
@@ -204,7 +205,7 @@ export default function WeatherDisplay() {
                     <p>Loading weather data</p>
                 ) : (
                     <div className="flex flex-col items-center justify-center">
-                        <button className="px-5 py-3 bg-amber-200 rounded-2xl cursor-pointer hover:bg-amber-100 transition-colors duration-700" disabled={loadingLocation} onClick={requestLocation}>Use my location</button>
+                        <button className="px-5 py-3 bg-amber-200 rounded-2xl cursor-pointer hover:bg-amber-100 transition-colors duration-700" disabled={loadingLocation} onClick={()  => requestLocation}>Use my location</button>
                         <p>We need your location data to fetch the weather for your region.</p>
                     </div>
                 )}

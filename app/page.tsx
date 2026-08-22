@@ -3,6 +3,8 @@
 import ClockComponent from "@/components/clock";
 import SpeedOfDayComponent from "@/components/speechoftheday";
 import WeatherDisplay from "@/components/wheaterDisplay";
+import SettingsComponent from "@/components/settings";
+
 
 export default function Home() {
   return (
@@ -10,6 +12,7 @@ export default function Home() {
       <ClockComponent/>
         <SpeedOfDayComponent/>
         <WeatherDisplay/>
+      <SettingsComponent/>
     </div>
   );
 }
